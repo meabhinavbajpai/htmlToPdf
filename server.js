@@ -7,11 +7,11 @@ const port = process.env.PORT || 8080;
 app.use(cors());
 
 app.get('/convert', async (req, res) => {
-  const { html } = req.query;
+  const { html } = req?.query;
 
-  const browser = await puppeteer.launch();
-  const page = await browser.newPage();
-  await page.setContent(html);
+  const browser = await puppeteer?.launch();
+  const page = await browser?.newPage();
+  await page?.setContent(html);
 
   const pdfBuffer = await page.pdf({ format: 'A4',omitBackground:true, waitUntil: 'domcontentloaded' ,printBackground:true});
 
