@@ -13,7 +13,7 @@ app.get('/convert', async (req, res) => {
   const page = await browser?.newPage();
   await page?.setContent(html);
 
-  const pdfBuffer = await page.pdf({ format: 'A4',omitBackground:true, waitUntil: 'domcontentloaded' ,printBackground:true});
+  const pdfBuffer = await page?.pdf({ format: 'A4',omitBackground:true, waitUntil: 'domcontentloaded' ,printBackground:true});
 
   await browser.close();
 
